@@ -1,0 +1,11 @@
+{
+  "name": "collaboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot server.ts",
+    "start": "bun server.ts",
+    "seed": "bun seed.ts",
+    "smoke": "bun scripts/smoke.ts"
+  }
+}

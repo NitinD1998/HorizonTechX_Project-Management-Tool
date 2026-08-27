@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Collaboard — Team Project Management</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232f6bff'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Arial'>C</text></svg>" />
+  </head>
+  <body>
+    <div id="auth-view">
+      <div class="auth-card">
+        <div class="brand brand-lg"><span class="brand-mark">C</span> Collaboard</div>
+        <div class="tabs">
+          <button id="tab-login" class="tab active">Sign in</button>
+          <button id="tab-register" class="tab">Create account</button>
+        </div>
+        <form id="login-form" autocomplete="on">
+          <label>Email<input name="email" type="email" required placeholder="you@team.com" /></label>
+          <label>Password<input name="password" type="password" required minlength="6" placeholder="••••••••" /></label>
+          <button class="btn primary block" type="submit">Sign in</button>
+          <p class="hint">Demo: alice@demo.dev / Password123!</p>
+        </form>
+        <form id="register-form" class="hidden" autocomplete="on">
+          <label>Name<input name="name" required placeholder="Ada Lovelace" /></label>
+          <label>Email<input name="email" type="email" required placeholder="you@team.com" /></label>
+          <label>Password<input name="password" type="password" required minlength="6" placeholder="At least 6 characters" /></label>
+          <button class="btn primary block" type="submit">Create account</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="app-view" class="hidden">
+      <header class="bar">
+        <div class="brand"><span class="brand-mark">C</span> Collaboard</div>
+        <div class="bar-right">
+          <div class="bell-wrap">
+            <button id="bell-btn" class="icon-btn" title="Notifications">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span id="notif-badge" class="pill hidden">0</span>
+            </button>
+            <div id="notif-panel" class="popover hidden">
+              <div class="popover-head">
+                <strong>Notifications</strong>
+                <button id="mark-read-btn" class="link-btn">Mark all read</button>
+              </div>
+              <div id="notif-list"></div>
+            </div>
+          </div>
+          <span id="user-chip" class="user-chip"></span>
+          <button id="btn-logout" class="btn ghost small">Log out</button>
+        </div>
+      </header>
+
+      <div class="shell">
+        <aside id="sidebar">
+          <div class="side-head">
+            <span>Projects</span>
+            <button id="btn-new-project" class="icon-btn" title="New project">+</button>
+          </div>
+          <div id="sidebar-projects"></div>
+        </aside>
+
+        <main id="main">
+          <div id="board-area">
+            <div class="empty-state">
+              <h2>Welcome to Collaboard</h2>
+              <p>Create a project or pick one from the sidebar to see its board.</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div id="modal-root"></div>
+    <div id="toasts"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>
